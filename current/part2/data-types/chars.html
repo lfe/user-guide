@@ -177,6 +177,39 @@
             <div id="content" class="content">
                 <main>
                     <h1><a class="header" href="#characters" id="characters">Characters</a></h1>
+<p>Characters in LFE Are represented internally by integers, however a literal
+syntax is offered for convenience:</p>
+<pre><code class="language-lisp">lfe&gt; #\a
+97
+lfe&gt; #\A
+65
+lfe&gt; #\ü
+252
+lfe&gt; #\Æ
+198
+</code></pre>
+<h2><a class="header" href="#converting" id="converting">Converting</a></h2>
+<p>Since a character literal and integer are the same thing as far as LFE is
+concerned, there is no such thing as converting between a &quot;char&quot; and &quot;ord&quot; like
+there is in some other languages.</p>
+<p>However, one can format an integer as a string by telling the class of <code>format</code>
+functions that the input is &quot;character&quot; type:</p>
+<pre><code class="language-lisp">lfe&gt; (io_lib:format &quot;~c&quot; `(198))
+&quot;Æ&quot;
+</code></pre>
+<p>For merely printing to <code>standard out</code> instead of returning a value, one may
+use:</p>
+<pre><code class="language-lisp">lfe&gt; (lfe_io:format &quot;~c~n&quot; `(198))
+Æ
+ok
+lfe&gt; (io:format &quot;~c~n&quot; `(198))
+Æ
+ok
+</code></pre>
+<h2><a class="header" href="#operators" id="operators">Operators</a></h2>
+<p>All operations that are valid for integers are valid for characters.</p>
+<h2><a class="header" href="#predicates" id="predicates">Predicates</a></h2>
+<p>All predicates that are valid for integers are valid for characters.</p>
 
                 </main>
 
